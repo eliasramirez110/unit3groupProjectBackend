@@ -32,6 +32,11 @@ For this project, we will build an e-commerce full stack application that allows
 4. The user should be able to place an order.
 
 
+## STRECH GOALS
+1. The admin user should be able to manage products
+2. The admin user should be able to mark orders from all users as shipped.
+3. Use a 3rd party API like Stripe to process payments
+
 ## The technologies we will be using are:
 
 - Javascript
@@ -41,13 +46,6 @@ For this project, we will build an e-commerce full stack application that allows
 - HTML /CSS
 - React
 - Stripe API
-- PayPal API 
-
-
-## STRECH GOALS
-1. The admin user should be able to manage products
-2. The admin user should be able to mark orders from all users as shipped.
-3. Use a 3rd party API like Stripe to process payments
 
 ## ERD
 
