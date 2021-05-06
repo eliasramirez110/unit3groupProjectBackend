@@ -1,10 +1,12 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "This project will be an ecommerce store. We will create a store to sell ___ . For this project, we will build an e-commerce full stack application that allows users to perform various CRUD operations. we will also be impementing a stripe API, to use Stripe's payment processing platform. The objectives are as follows: - Build a backend using Node.js, Postgres and Express with at least 2 tables in the database - Backend support for user authentication, including password hashing - Allow users to register and log in   - Allow CRUD on products in the online store - Allow CRUD on user accounts - Allow CRUD on user carts - Allow a user to create an order - A frontend react app that interacts with the backend - Use of a 3rd party API",
+  "description": "This project will be an ecommerce store.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
