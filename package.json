@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This project will be an ecommerce store. We will create a store to sell ___ . For this project, we will build an e-commerce full stack application that allows users to perform various CRUD operations. we will also be impementing a stripe API, to use Stripe's payment processing platform. The objectives are as follows: - Build a backend using Node.js, Postgres and Express with at least 2 tables in the database - Backend support for user authentication, including password hashing - Allow users to register and log in   - Allow CRUD on products in the online store - Allow CRUD on user accounts - Allow CRUD on user carts - Allow a user to create an order - A frontend react app that interacts with the backend - Use of a 3rd party API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliasramirez110/unit3groupProjectBackend.git"
+  },
+  "author": "Elias, RZ, Clement",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliasramirez110/unit3groupProjectBackend/issues"
+  },
+  "homepage": "https://github.com/eliasramirez110/unit3groupProjectBackend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0",
+    "rowdy-logger": "^1.0.2",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+  }
+}
