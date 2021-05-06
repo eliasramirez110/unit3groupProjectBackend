@@ -4,7 +4,7 @@ const purchaseController = {}
 
 purchaseController.store = async(req, res) => {
   try {
-    const sneakers = await models.sneaker.findAll()
+    const products = await models.products.findAll()
     res.json({products})
   } catch (error) {
     res.json({error})    
