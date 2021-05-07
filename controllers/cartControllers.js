@@ -17,4 +17,26 @@ cartController.getProducts = async (req, res) => {
     }
 }
 
+cartController.removeProduct = async (req, res) => {
+    try {
+        const cart = await models.cart.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        const product = await models.product.findOne({
+            where: {
+                id: req.body.productId
+            }
+        })
+
+        await cart.removeProduct(product)
+
+        res.json({ cart })
+    } catch (error) {
+
+    }
+}
+
 module.exports = cartController
