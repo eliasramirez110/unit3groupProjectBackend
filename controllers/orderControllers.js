@@ -1,9 +1,11 @@
+const e = require('express')
 const models = require('../models')
 
 const orderController = {}
 
 orderController.placeOrder = async (req, res) => {
     try {
+
         const user = await models.user.findOne({
             where: {
                 id: req.headers.authorization
@@ -16,10 +18,10 @@ orderController.placeOrder = async (req, res) => {
         })
         const products = await cart.getProducts()
 
-        const total = products.reduce((accumulator, currentProduct) => {
-            return parseFloat(accumulator.price) + parseFloat(currentProduct.price)
-        })
-
+        let total = 0;
+        for (let product of products) {
+            total += parseFloat(product.price)
+        }
         const order = await models.order.create({
             total: total,
             orderAddress: user.userAddress,
@@ -30,14 +32,15 @@ orderController.placeOrder = async (req, res) => {
             expDate: user.expDate
         })
 
+        //add products to the order
+        await order.addProducts(products)
+
         await user.addOrders(order)
         await order.reload()
-
         //remove items from the cart
         await cart.removeProducts(products)
         // delete/empty the cart
         await cart.destroy()
-
         res.json({ order })
     } catch (error) {
         res.json({ error })
