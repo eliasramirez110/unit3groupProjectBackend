@@ -16,7 +16,7 @@ userController.create = async (req, res) => {
       cardNumber: req.body.cardNumber,
       expDate: req.body.expDate,
     })
-    res.json({user})
+    res.json({ user })
   } catch (error) {
     res.json({ error })
   }
@@ -78,6 +78,7 @@ userController.verify = async (req, res) => {
 userController.addToCart = async (req, res) => {
 
   const userId = req.params.id
+  console.log(userId);
 
   if (userId) {
     try {
