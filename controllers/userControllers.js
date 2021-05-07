@@ -1,4 +1,5 @@
 const models = require('../models')
+const user = require('../models/user')
 
 const userController = {}
 
@@ -75,5 +76,46 @@ userController.verify = async (req, res) => {
     res.status(400).json({ message: 'user not found.' })
   }
 }
+
+userController.addToCart = async (req, res) => {
+
+  const userId = req.params.id
+
+  if (userId) {
+    try {
+      // Get the user
+      const user = await models.user.findOne({
+        where: {
+          id: userId
+        }
+      })
+
+      // Get user's cart
+      let cart = await user.getCart()
+
+      // If the user has no cart, create one
+      if (!cart) {
+        cart = await user.createCart()
+      }
+
+      const product = await models.product.findOne({
+        where: {
+          id: req.body.productId
+        }
+      })
+      // add product to the cart
+      cart.addProduct(product)
+
+      res.json({ cart, product })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  else {
+    res.json({ message: 'Id is required.' })
+  }
+}
+
+
 
 module.exports = userController
