@@ -15,9 +15,7 @@ userController.create = async (req, res) => {
       cardNumber: req.body.cardNumber,
       expDate: req.body.expDate,
     })
-    res.json({
-      user
-    })
+    res.json({user})
   } catch (error) {
     res.json({ error })
   }
@@ -55,7 +53,7 @@ userController.destroy = async (req, res) => {
 }
 
 userController.verify = async (req, res) => {
-  const userId = req.headers.authorization
+  const userId = req.params.userId
 
   if (userId) {
     try {
