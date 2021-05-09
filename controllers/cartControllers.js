@@ -27,7 +27,7 @@ cartController.removeProduct = async (req, res) => {
 
         const product = await models.product.findOne({
             where: {
-                id: req.body.productId
+                id: req.params.productId
             }
         })
 
