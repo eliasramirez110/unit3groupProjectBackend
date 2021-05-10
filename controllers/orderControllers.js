@@ -8,12 +8,12 @@ orderController.placeOrder = async (req, res) => {
 
         const user = await models.user.findOne({
             where: {
-                id: req.headers.authorization
+                id: req.params.userId
             }
         })
         const cart = await models.cart.findOne({
             where: {
-                id: req.body.cartId
+                id: req.params.cartId
             }
         })
         const products = await cart.getProducts()
