@@ -39,6 +39,23 @@ userController.login = async (req, res) => {
   }
 }
 
+userController.update = async (req, res) => {
+  try {
+    const oldUser = await models.user.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+
+    const user = await oldUser.update(req.body)
+    res.json({
+      user
+    })
+  } catch (error) {
+    res.json({ error })
+  }
+}
+
 userController.destroy = async (req, res) => {
   try {
     const user = await models.user.findOne({
