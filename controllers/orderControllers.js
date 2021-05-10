@@ -55,11 +55,14 @@ orderController.getUserOrders = async (req, res) => {
             }
         })
 
-        const orders = await user.getOrders()
+        const orders = await user.getOrders({
+            include: models.product
+        })
         res.json({ orders })
     } catch (error) {
         res.json({ error })
     }
 }
+
 
 module.exports = orderController
